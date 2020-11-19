@@ -44,7 +44,7 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 	public void launch_the_Amazon_app() throws Throwable {
 
 		Log.info("Launching the Application based on the Capabilities from the Driver file");
-		System.out.println("Platform Name here is: " + driver.getCapabilities().getCapability("platformName"));
+		Log.info("Platform Name here is: " + driver.getCapabilities().getCapability("platformName"));
 		
 
 	}
@@ -68,7 +68,8 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 			}
 			catch(Exception E) {
 				Log.info("Expected Element is not Presnet");
-				System.out.println("Skip Sign in not Displayed Hence moving to HomePage");
+				Log.info("Skip Sign in not Displayed Hence moving to HomePage");
+				
 			}
 
 		}
@@ -98,11 +99,11 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 		try {
 			Log.info("Waiting for the Element" + Amazon_CartPageTest.AddMobileNumber);
 			wait.until(ExpectedConditions.elementToBeClickable(Amazon_CartPageTest.AddMobileNumber));
-			System.out.println("Enter your Mobile Number to procced  Order");
+			Log.info("Enter your Mobile Number to procced  Order");
 		}
 		catch(Exception E) {
 			Log.info("Expected Element is not Presnet");
-			System.out.println("Enter Address to procced your Order");
+			
 		}
 			
 		}
@@ -136,7 +137,7 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 		
 		Log.info("Get the Current Orientation of the Device");
 		ScreenOrientation CurrentScreen = driver.getOrientation();
-		System.out.println("The Oreintation of Current Page is : "+ CurrentScreen );
+		Log.info("The Oreintation of Current Page is : "+ CurrentScreen );
 		
 		Log.info("Rotate the Current Orientation to LANDSCAPE" );
 		driver.rotate(ScreenOrientation.LANDSCAPE);
@@ -255,7 +256,8 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 			}
 			catch(Exception E) {
 				Log.info("Expected scenarios is not Presnet");
-				System.out.println("Searching for the First Time");
+				
+				
 			}
 	
 		Log.info("Enter the text " + data.Product + " to the text Field");
@@ -300,7 +302,7 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 		wait.until(ExpectedConditions.elementToBeClickable(Amazon_ProductPageTest.ProdcutName));
 		Log.info("Get the Details of ChoosenProduct");
 		ProductName = Amazon_ProductPageTest.ProdcutName.getText();
-		System.out.println("The Selected Product is : " + ProductName);
+		Log.info("The Selected Product is : " + ProductName);
 		Log.info("Verify the Choosen Product is same as TV or not");
 		Assert.assertTrue("The suggestions are not having expected Product", ProductName.contains(data.tv));
 	}
@@ -322,22 +324,17 @@ public class AmazonStepDefinitions extends desiredCapabilities{
 		String ProductDetailsPage = Amazon_ProductPageTest.ProdcutName.getText();
 		Log.info("Verify the Choosen Product is same as TV or not");
 		Assert.assertEquals(ProductDetailsPage, ProductName);
-		System.out.println("The Name of the Choosen Prodcut is :"+ProductDetailsPage);
+		Log.info("The Name of the Choosen Prodcut is :"+ProductDetailsPage);
 		Log.info("Get the Price of ChoosenProduct");
 		String ProductPrice = Amazon_ProductPageTest.Price.getText();
-		System.out.println("The Price of the Choosen Prodcut is: "+ProductPrice);
+		Log.info("The Price of the Choosen Prodcut is: "+ProductPrice);
 		
-//		CF.scrollToText("From the manufacturer", driver);
-//		Assert.assertTrue(Amazon_OR.FromTheManufacturer.isDisplayed());
-		
+
 	}
 	@And("^User Add's the product to the Cart$")
 	public void user_adds_the_product_to_cart() throws MalformedURLException, InterruptedException {
 		Log.info("Add the Procut to Cart by Scrolling to Add Cart Section");
-		Thread.sleep(4000);
 		CF.scrollToText("Add to Cart", driver);
-//		wait.until(ExpectedConditions.elementToBeClickable(Amazon_ProductPage_OR.AddToCart));
-//		Amazon_ProductPage_OR.AddToCart.click();
 		Log.info("Waiting for the Element" + Amazon_ProductPageTest.AddedToCart);
 		wait.until(ExpectedConditions.elementToBeClickable(Amazon_ProductPageTest.AddedToCart));
 		Log.info("Verify the presence of the " + Amazon_ProductPageTest.AddedToCart + "in current Page");

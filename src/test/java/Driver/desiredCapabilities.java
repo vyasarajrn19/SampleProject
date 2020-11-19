@@ -101,7 +101,8 @@ public class desiredCapabilities {
 //    		driver =  new AndroidDriver<MobileElement>(server.getUrl(), capabilities);
     		
     		wait = new WebDriverWait(driver, 30);
-    		System.out.println("Initialize: "+driver);
+    		Log.info("Initialize: "+driver);
+    		
     		
     		PageFactory.initElements(driver, Amazon_CartPageTest.class);
     		PageFactory.initElements(driver, Amazon_ProductPageTest.class);
@@ -112,7 +113,8 @@ public class desiredCapabilities {
 
 		}
 		else {
-			System.out.println("Expected Platform not specified");
+			
+			Log.info("Expected Platform not specified");
 		}
 		
 	}
