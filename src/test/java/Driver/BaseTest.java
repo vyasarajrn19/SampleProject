@@ -26,7 +26,8 @@ public void beforeHookfunction() throws MalformedURLException, InterruptedExcept
  
     @After(order = 0)
     public void afterHookfunction() {
-        System.out.println("test completed");
+        
+        Log.info("test completed");
         driver.quit();
         stopAppiumServer();
 
