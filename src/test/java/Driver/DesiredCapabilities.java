@@ -1,7 +1,7 @@
 /**
 * 
 */
-package Driver;
+package src.test.java.Driver;
 
 import static Utility.SetProperties.appConfig;
 
@@ -37,7 +37,7 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
  * 
  */
 
-public class desiredCapabilities {
+public class DesiredCapabilities {
 	public static AppiumDriver<MobileElement> driver;
 	public static WebDriverWait wait;
 	PropertyData prop = new PropertyData();	

@@ -3,9 +3,9 @@ package src.test.java.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import Driver.desiredCapabilities;
+import src.test.java.Driver.DesiredCapabilities;
 
-public class Amazon_HamburgerMenuTest extends desiredCapabilities {
+public class Amazon_HamburgerMenuTest extends DesiredCapabilities {
 
 	
 	@FindBy(id ="com.amazon.mShop.android.shopping:id/gno_greeting_text_view")

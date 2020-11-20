@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Driver.PropertyData;
-import Driver.desiredCapabilities;
 import ObjectRepository.Amazon_CartPage_OR;
 import ObjectRepository.Amazon_HamburgerMenu_OR;
 import ObjectRepository.Amazon_HomePage_OR;
@@ -27,8 +26,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import src.test.java.Driver.DesiredCapabilities;
 
-public class AmazonStepDefinitions extends desiredCapabilities{
+public class AmazonStepDefinitions extends DesiredCapabilities{
 
 	
 	PropertyData data = new PropertyData();

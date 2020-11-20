@@ -7,15 +7,15 @@ import java.util.Set;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import Driver.desiredCapabilities;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import src.test.java.Driver.DesiredCapabilities;
 
-public class CommonMethodsFunctions extends desiredCapabilities{
+public class CommonMethodsFunctions extends DesiredCapabilities{
 	
 	/**
 	 * 
@@ -40,15 +40,17 @@ public class CommonMethodsFunctions extends desiredCapabilities{
 	 */
 	public static void swipeHorizontal(AppiumDriver<MobileElement> driver) {
 		
-	    System.out.println("Call swipe left...");
+	   
+	    Log.info("Call swipe left...");
+	    
 		Dimension size = driver.manage().window().getSize();
 	    int anchor = (int) (size.height * .15);
 	    int startPoint = (int) (size.width * .10);
 	    int endPoint = (int) (size.width * .50);
 	    
-	    System.out.println("Swipe: "+anchor+", "+startPoint+", "+endPoint+" and Size: "+size);
+	    Log.info("Swipe: "+anchor+", "+startPoint+", "+endPoint+" and Size: "+size);
 	    new TouchAction(driver).press(PointOption.point(950, 700)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(100, 700)).release().perform();
-	    System.out.println("Element Swiped...");
+	    Log.info("Element Swiped...");
 	}
 	
     /**
@@ -72,17 +74,20 @@ public class CommonMethodsFunctions extends desiredCapabilities{
 	public void switchToWebView(AppiumDriver<MobileElement> driver) {
 
 		Set<String> availableContexts = driver.getContextHandles();
-		System.out.println("Total No of Context Found = " + availableContexts.size());
-		System.out.println("Available Contexts: " + availableContexts);
+		Log.info("Total No of Context Found = " + availableContexts.size());
+		Log.info("Available Contexts: " + availableContexts);
 		for (String context : availableContexts) {
-			System.out.println("context: " + context);
+			Log.info("context: " + context);
+					
 			if (context.contains("WEBVIEW")) {
-				System.out.println("Switching to Context: " + context);
+				Log.info("Switching to Context: " + context);
 				driver.context(context);
-				System.out.println("Switched to Context: " + context);
+				Log.info("Switching to Context: " + context);
+				
 				break;
 			} else {
-				System.out.println("Expected context not found");
+			
+				Log.info("Expected context not found");
 			}
 		}
 	}
@@ -94,6 +99,7 @@ public class CommonMethodsFunctions extends desiredCapabilities{
 	 */
 	public void switchToNativeApp(AppiumDriver<MobileElement> driver) {
 		driver.context("NATIVE_APP");
-		System.out.println("Context switched to " + "NATIVE_APP");
+		
+		Log.info("Context switched to " + "NATIVE_APP");
 	}
 }

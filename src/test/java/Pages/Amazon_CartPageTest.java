@@ -2,10 +2,9 @@ package src.test.java.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import src.test.java.Driver.DesiredCapabilities;
 
-import Driver.desiredCapabilities;
-
-public class Amazon_CartPageTest extends desiredCapabilities{
+public class Amazon_CartPageTest extends DesiredCapabilities{
 
 	@FindBy(id =  "com.amazon.mShop.android.shopping:id/action_bar_cart_image")
 	public static WebElement CartMenu;

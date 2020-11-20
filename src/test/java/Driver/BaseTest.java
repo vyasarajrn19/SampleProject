@@ -12,7 +12,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
 
-public class BaseTest extends desiredCapabilities {
+public class BaseTest extends DesiredCapabilities {
 	
    
 	
